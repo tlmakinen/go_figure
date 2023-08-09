@@ -1,3 +1,3 @@
 __version__ = "0.0.1"
 
-from .go_figure import latexify, saveimage
+from .go_figure import *

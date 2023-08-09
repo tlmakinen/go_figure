@@ -43,7 +43,7 @@ sns.set_palette(sns.cubehelix_palette(rot=.2))
 # column figures. You may also wish to alter the height or width of the figure.
 # The default settings are good for most cases. You may also change the
 # parameters such as labelsize and fontsize based on your classfile.
-def go_figure(fig_width=colwidth, fig_height=None, columns=1, ticksize=8):
+def latexify(fig_width=colwidth, fig_height=None, columns=1, ticksize=8):
     """Set up matplotlib's RC params for LaTeX plotting.
     Call this before plotting a figure.
     Parameters
@@ -113,4 +113,4 @@ def saveimage(name, fig = plt, extension = 'pdf', folder = 'plots/'):
     
     fig.savefig('{}{}.{}'.format(folder,name, extension), bbox_inches = 'tight')
 
-go_figure()
+latexify()

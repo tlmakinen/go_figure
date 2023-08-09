@@ -23,6 +23,8 @@ matplotlib.backend_bases.register_backend('pdf', FigureCanvasPgf)
 import seaborn as sns
 sns.set_style("white")
 
+colwidth = 3.404 #inches
+
 #my preferred palette. From
 #https://seaborn.pydata.org/tutorial/color_palettes.html: "The cubehelix color
 #palette system makes sequential palettes with a linear increase or decrease in
@@ -41,7 +43,7 @@ sns.set_palette(sns.cubehelix_palette(rot=.2))
 # column figures. You may also wish to alter the height or width of the figure.
 # The default settings are good for most cases. You may also change the
 # parameters such as labelsize and fontsize based on your classfile.
-def latexify(fig_width=None, fig_height=None, columns=1, ticksize=8):
+def go_figure(fig_width=colwidth, fig_height=None, columns=1, ticksize=8):
     """Set up matplotlib's RC params for LaTeX plotting.
     Call this before plotting a figure.
     Parameters
@@ -111,4 +113,4 @@ def saveimage(name, fig = plt, extension = 'pdf', folder = 'plots/'):
     
     fig.savefig('{}{}.{}'.format(folder,name, extension), bbox_inches = 'tight')
 
-latexify()
+go_figure()

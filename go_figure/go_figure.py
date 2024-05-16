@@ -43,7 +43,7 @@ sns.set_palette(sns.cubehelix_palette(rot=.2))
 # column figures. You may also wish to alter the height or width of the figure.
 # The default settings are good for most cases. You may also change the
 # parameters such as labelsize and fontsize based on your classfile.
-def latexify(fig_width=colwidth, fig_height=None, columns=1, ticksize=8):
+def latexify(fig_width=colwidth, fig_height=None, columns=1, ticksize=8, adjust_font=False):
     """Set up matplotlib's RC params for LaTeX plotting.
     Call this before plotting a figure.
     Parameters
@@ -72,32 +72,38 @@ def latexify(fig_width=colwidth, fig_height=None, columns=1, ticksize=8):
               "so will reduce to" + MAX_HEIGHT_INCHES + "inches."))
         fig_height = MAX_HEIGHT_INCHES
 
-    params = {
-            # 'backend': 'ps',
-           #   'pgf.rcfonts': False,
-           #   'pgf.preamble': ['\\usepackage{gensymb}', '\\usepackage[dvipsnames]{xcolor}'],
-           #   "pgf.texsystem": "pdflatex",
-             # 'text.latex.preamble': ['\\usepackage{gensymb}', '\\usepackage[dvipsnames]{xcolor}'],
-              'text.latex.preamble': '\\usepackage{mathptmx}',
-              #values below are useful defaults. individual plot fontsizes are
-              #modified as necessary.
-              'axes.labelsize': 8,  # fontsize for x and y labels
-              'axes.titlesize': 8,
-              'font.size': 8,
-              'legend.fontsize': 8,
-              'xtick.labelsize': ticksize,
-              'ytick.labelsize': ticksize,
-              'text.usetex': True,
-              'figure.figsize': [fig_width, fig_height],
-              'font.family': 'DejaVu Sans',
-              'font.serif': 'Times',
-               'lines.linewidth': 1.5,
-               'lines.markersize':1,
-               'xtick.major.pad' : 2,
-               'ytick.major.pad' : 2,
-                'axes.xmargin' :  .0,  # x margin.  See `axes.Axes.margins`
-                'axes.ymargin' : .0,  # y margin See `axes.Axes.margins`
-              }
+    if adjust_font:
+        params = {
+                # 'backend': 'ps',
+            #   'pgf.rcfonts': False,
+            #   'pgf.preamble': ['\\usepackage{gensymb}', '\\usepackage[dvipsnames]{xcolor}'],
+            #   "pgf.texsystem": "pdflatex",
+                # 'text.latex.preamble': ['\\usepackage{gensymb}', '\\usepackage[dvipsnames]{xcolor}'],
+                'text.latex.preamble': '\\usepackage{mathptmx}',
+                #values below are useful defaults. individual plot fontsizes are
+                #modified as necessary.
+                'axes.labelsize': 8,  # fontsize for x and y labels
+                'axes.titlesize': 8,
+                'font.size': 8,
+                'legend.fontsize': 8,
+                'xtick.labelsize': ticksize,
+                'ytick.labelsize': ticksize,
+                'text.usetex': True,
+                'figure.figsize': [fig_width, fig_height],
+                'font.family': 'DejaVu Sans',
+                'font.serif': 'Times',
+                'lines.linewidth': 1.5,
+                'lines.markersize':1,
+                'xtick.major.pad' : 2,
+                'ytick.major.pad' : 2,
+                    'axes.xmargin' :  .0,  # x margin.  See `axes.Axes.margins`
+                    'axes.ymargin' : .0,  # y margin See `axes.Axes.margins`
+                }
+    else:
+        params = {
+                'text.usetex': True,
+                'figure.figsize': [fig_width, fig_height],
+                }
 
     matplotlib.rcParams.update(params)
 

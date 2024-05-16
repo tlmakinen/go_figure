@@ -103,6 +103,10 @@ def latexify(fig_width=colwidth, fig_height=None, columns=1, ticksize=8, adjust_
         params = {
                 'text.usetex': True,
                 'figure.figsize': [fig_width, fig_height],
+                'axes.labelsize': 8,  # fontsize for x and y labels
+                'axes.titlesize': 8,
+                'font.size': 8,
+                'legend.fontsize': 8,
                 }
 
     matplotlib.rcParams.update(params)

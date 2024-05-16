@@ -101,7 +101,6 @@ def latexify(fig_width=colwidth, fig_height=None, columns=1, ticksize=8, adjust_
                 }
     else:
         params = {
-                'text.usetex': True,
                 'figure.figsize': [fig_width, fig_height],
                 'axes.labelsize': 8,  # fontsize for x and y labels
                 'axes.titlesize': 8,

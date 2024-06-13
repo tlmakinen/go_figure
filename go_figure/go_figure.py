@@ -88,7 +88,7 @@ def latexify(fig_width=colwidth, fig_height=None, columns=1, ticksize=8, adjust_
                 'legend.fontsize': 8,
                 'xtick.labelsize': ticksize,
                 'ytick.labelsize': ticksize,
-                'text.usetex': True,
+                'text.usetex': False,
                 'figure.figsize': [fig_width, fig_height],
                 'font.family': 'DejaVu Sans',
                 'font.serif': 'Times',
